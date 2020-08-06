@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>org.tfvc-checkout.tfvc-checkout</id>
+    <name>TFVC Checkout</name>
+    <vendor>by Stefanel Turcu</vendor>
+
+    <description><![CDATA[
+    This plugin is build to be used with TFVC.
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <writingAccessProvider implementation="tfvccheckout.WriteAccessProviderAction"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="tfvccheckout.FileEventsListener" topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
+    </applicationListeners>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+    <idea-version since-build="2019.3"/>
+</idea-plugin>
